@@ -510,3 +510,22 @@ diff -r -c '--exclude=README.md' ./sumpix.c ../xxx/wcstools-3.8.8/sumpix.c
   	    ra = str2ra (xstr);
   	    dec = str2dec (ystr);
   	    wcs2pix (wcs, ra, dec, &xp, &yp, &offscl);
+*** ../xxx/wcstools-3.8.8/libwcs/ty2read.c	2012-05-01 18:18:36.000000000 -0400
+--- libwcs/ty2read.c	2013-10-29 18:17:28.288645093 -0400
+***************
+*** 1339,1345 ****
+  
+      /* Read catalog entry */
+      if (sc->nbent > sc->catlast-line) {
+! 	fprintf (stderr, "TY2STAR:  %d / %d bytes read for star %d\n",
+  		 sc->catlast - line, sc->nbent, istar);
+  	return (5);
+  	}
+--- 1339,1345 ----
+  
+      /* Read catalog entry */
+      if (sc->nbent > sc->catlast-line) {
+! 	fprintf (stderr, "TY2STAR:  %ld / %d bytes read for star %d\n",
+  		 sc->catlast - line, sc->nbent, istar);
+  	return (5);
+  	}
