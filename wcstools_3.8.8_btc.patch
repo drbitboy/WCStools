@@ -1,0 +1,512 @@
+diff -r -c '--exclude=README.md' ./getfits.c ../xxx/wcstools-3.8.8/getfits.c
+*** ./getfits.c	2013-09-23 16:00:47.000000000 -0400
+--- ../xxx/wcstools-3.8.8/getfits.c	2013-10-29 17:05:56.524877159 -0400
+***************
+*** 423,429 ****
+  	}
+  
+      if (ra0 > -99.0 && dec0 > -99.0) {
+! 	wcs = GetWCSFITS (name, header, verbose);
+  	if (wcs->lngcor != NULL) {
+  	    istnx = 1;
+  	    }
+--- 423,430 ----
+  	}
+  
+      if (ra0 > -99.0 && dec0 > -99.0) {
+! 	//wcs = GetWCSFITS (name, header, verbose);
+! 	wcs = GetWCSFITS (name, verbose);
+  	if (wcs->lngcor != NULL) {
+  	    istnx = 1;
+  	    }
+Only in ./: .git
+diff -r -c '--exclude=README.md' ./imcat.c ../xxx/wcstools-3.8.8/imcat.c
+*** ./imcat.c	2013-09-23 16:00:47.000000000 -0400
+--- ../xxx/wcstools-3.8.8/imcat.c	2013-10-29 17:56:15.944713890 -0400
+***************
+*** 718,731 ****
+      nalloc = ngmax;
+  
+      if (!(gm = (double **) calloc (nbuffer, sizeof(double *)))) {
+! 	fprintf (stderr, "Could not calloc %d bytes for gm\n",
+  	    nbuffer*sizeof(double *));
+  	FreeBuffers();
+  	return (0);
+      }
+      for (imag = 0; imag < nbuffer; imag++) {
+  	if (!(gm[imag] = (double *) calloc (ngmax, sizeof(double)))) {
+! 	   fprintf (stderr, "Could not calloc %d bytes for gm\n",
+  		    ngmax*sizeof(double));
+  	    FreeBuffers();
+  	    return (0);
+--- 718,731 ----
+      nalloc = ngmax;
+  
+      if (!(gm = (double **) calloc (nbuffer, sizeof(double *)))) {
+! 	fprintf (stderr, "Could not calloc %zu bytes for gm\n",
+  	    nbuffer*sizeof(double *));
+  	FreeBuffers();
+  	return (0);
+      }
+      for (imag = 0; imag < nbuffer; imag++) {
+  	if (!(gm[imag] = (double *) calloc (ngmax, sizeof(double)))) {
+! 	   fprintf (stderr, "Could not calloc %zu bytes for gm\n",
+  		    ngmax*sizeof(double));
+  	    FreeBuffers();
+  	    return (0);
+***************
+*** 733,787 ****
+      }
+  
+      if (!(gra = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %d bytes for gra\n",
+  	    ngmax*sizeof(double));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gdec = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %d bytes for gdec\n",
+  	    ngmax*sizeof(double));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gpra = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %d bytes for gpra\n",
+  	    ngmax*sizeof(double));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gpdec = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %d bytes for gpdec\n",
+  	    ngmax*sizeof(double));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gnum = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %d bytes for gnum\n",
+  	   ngmax*sizeof(double));
+         FreeBuffers();
+  	return (0);
+      }
+      if (!(gc = (int *) calloc (ngmax, sizeof(int)))) {
+! 	fprintf (stderr, "Could not calloc %d bytes for gc\n",
+  	    ngmax*sizeof(int));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gx = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %d bytes for gx\n",
+  	    ngmax*sizeof(double));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gy = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %d bytes for gy\n",
+  	    ngmax*sizeof(double));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gobj = (char **) calloc (ngmax, sizeof(char *)))) {
+! 	fprintf (stderr, "Could not calloc %d bytes for obj\n",
+  	    ngmax*sizeof(char *));
+  	FreeBuffers();
+  	return (0);
+--- 733,787 ----
+      }
+  
+      if (!(gra = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %zu bytes for gra\n",
+  	    ngmax*sizeof(double));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gdec = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %zu bytes for gdec\n",
+  	    ngmax*sizeof(double));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gpra = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %zu bytes for gpra\n",
+  	    ngmax*sizeof(double));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gpdec = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %zu bytes for gpdec\n",
+  	    ngmax*sizeof(double));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gnum = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %zu bytes for gnum\n",
+  	   ngmax*sizeof(double));
+         FreeBuffers();
+  	return (0);
+      }
+      if (!(gc = (int *) calloc (ngmax, sizeof(int)))) {
+! 	fprintf (stderr, "Could not calloc %zu bytes for gc\n",
+  	    ngmax*sizeof(int));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gx = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %zu bytes for gx\n",
+  	    ngmax*sizeof(double));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gy = (double *) calloc (ngmax, sizeof(double)))) {
+! 	fprintf (stderr, "Could not calloc %zu bytes for gy\n",
+  	    ngmax*sizeof(double));
+  	FreeBuffers();
+  	return (0);
+      }
+      if (!(gobj = (char **) calloc (ngmax, sizeof(char *)))) {
+! 	fprintf (stderr, "Could not calloc %zu bytes for obj\n",
+  	    ngmax*sizeof(char *));
+  	FreeBuffers();
+  	return (0);
+diff -r -c '--exclude=README.md' ./libwcs/imsetwcs.c ../xxx/wcstools-3.8.8/libwcs/imsetwcs.c
+*** ./libwcs/imsetwcs.c	2012-05-01 18:18:36.000000000 -0400
+--- ../xxx/wcstools-3.8.8/libwcs/imsetwcs.c	2013-10-29 17:56:35.592712830 -0400
+***************
+*** 235,252 ****
+  	hputi4 (header, "WCSMATCH", nbin);
+  	hputi4 (header, "WCSNREF", nbin);
+  	if (!(gnum = (double *) calloc (nbin, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for gnum\n",
+  		     nbin*sizeof(double));
+  	for (is = 0; is < nbin; is++)
+  	    gnum[is] = (double)(is + 1);
+  	if (!(gx = (double *) calloc (nbin, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for gx\n",
+  		     nbin*sizeof(double));
+  	if (!(gy = (double *) calloc (nbin, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for gy\n",
+  		     nbin*sizeof(double));
+  	if (!(goff = (int *) calloc (nbin, sizeof(int))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for goff\n",
+  		     nbin*sizeof(double));
+  
+  	SetFITSWCS (header, wcs);
+--- 235,252 ----
+  	hputi4 (header, "WCSMATCH", nbin);
+  	hputi4 (header, "WCSNREF", nbin);
+  	if (!(gnum = (double *) calloc (nbin, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for gnum\n",
+  		     nbin*sizeof(double));
+  	for (is = 0; is < nbin; is++)
+  	    gnum[is] = (double)(is + 1);
+  	if (!(gx = (double *) calloc (nbin, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for gx\n",
+  		     nbin*sizeof(double));
+  	if (!(gy = (double *) calloc (nbin, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for gy\n",
+  		     nbin*sizeof(double));
+  	if (!(goff = (int *) calloc (nbin, sizeof(int))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for goff\n",
+  		     nbin*sizeof(double));
+  
+  	SetFITSWCS (header, wcs);
+***************
+*** 309,343 ****
+  	ngmax = (int) ((double) ngmax * imfrac * imfrac);
+      nbytes = ngmax * sizeof (double);
+      if (!(gnum = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %d bytes for gnum\n",
+  		 ngmax*sizeof(double));
+      if (!(gra = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %d bytes for gra\n",
+  		 ngmax*sizeof(double));
+      if (!(gdec = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %d bytes for gdec\n",
+  		 ngmax*sizeof(double));
+      if (!(gpra = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %d bytes for gpra\n",
+  		 ngmax*sizeof(double));
+      if (!(gpdec = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %d bytes for gpdec\n",
+  		 ngmax*sizeof(double));
+      if (!(gm = (double **) calloc (nmagmax, sizeof(double *))))
+! 	fprintf (stderr, "Could not calloc %d bytes for gm\n",
+  		 nmagmax*sizeof(double *));
+      else {
+  	for (imag = 0; imag < nmagmax; imag++) {
+  	    if (!(gm[imag] = (double *) calloc (ngmax, sizeof(double))))
+! 		fprintf (stderr, "Could not calloc %d bytes for gm\n",
+  		    ngmax*sizeof(double));
+  	    }
+  	}
+      if (!(gc = (int *) calloc (ngmax, sizeof(int))))
+! 	fprintf (stderr, "Could not calloc %d bytes for gc\n",
+  		 ngmax*sizeof(int));
+      if (!(gobj = (char **) calloc (ngmax, sizeof(char *))))
+! 	fprintf (stderr, "Could not calloc %d bytes for obj\n",
+  		 ngmax*sizeof(char *));
+      else {
+  	for (i = 0; i < ngmax; i++)
+--- 309,343 ----
+  	ngmax = (int) ((double) ngmax * imfrac * imfrac);
+      nbytes = ngmax * sizeof (double);
+      if (!(gnum = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %zu bytes for gnum\n",
+  		 ngmax*sizeof(double));
+      if (!(gra = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %zu bytes for gra\n",
+  		 ngmax*sizeof(double));
+      if (!(gdec = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %zu bytes for gdec\n",
+  		 ngmax*sizeof(double));
+      if (!(gpra = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %zu bytes for gpra\n",
+  		 ngmax*sizeof(double));
+      if (!(gpdec = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %zu bytes for gpdec\n",
+  		 ngmax*sizeof(double));
+      if (!(gm = (double **) calloc (nmagmax, sizeof(double *))))
+! 	fprintf (stderr, "Could not calloc %zu bytes for gm\n",
+  		 nmagmax*sizeof(double *));
+      else {
+  	for (imag = 0; imag < nmagmax; imag++) {
+  	    if (!(gm[imag] = (double *) calloc (ngmax, sizeof(double))))
+! 		fprintf (stderr, "Could not calloc %zu bytes for gm\n",
+  		    ngmax*sizeof(double));
+  	    }
+  	}
+      if (!(gc = (int *) calloc (ngmax, sizeof(int))))
+! 	fprintf (stderr, "Could not calloc %zu bytes for gc\n",
+  		 ngmax*sizeof(int));
+      if (!(gobj = (char **) calloc (ngmax, sizeof(char *))))
+! 	fprintf (stderr, "Could not calloc %zu bytes for obj\n",
+  		 ngmax*sizeof(char *));
+      else {
+  	for (i = 0; i < ngmax; i++)
+***************
+*** 374,386 ****
+  
+      /* Project the reference stars into pixels on a plane at ra0/dec0 */
+      if (!(gx = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %d bytes for gx\n",
+  		 ngmax*sizeof(double));
+      if (!(gy = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %d bytes for gy\n",
+  		 ngmax*sizeof(double));
+      if (!(goff = (int *) calloc (ngmax, sizeof(int))))
+! 	fprintf (stderr, "Could not calloc %d bytes for gy\n",
+  		 ngmax*sizeof(double));
+      if (!gx || !gy || !goff) {
+  	ret = 0;
+--- 374,386 ----
+  
+      /* Project the reference stars into pixels on a plane at ra0/dec0 */
+      if (!(gx = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %zu bytes for gx\n",
+  		 ngmax*sizeof(double));
+      if (!(gy = (double *) calloc (ngmax, sizeof(double))))
+! 	fprintf (stderr, "Could not calloc %zu bytes for gy\n",
+  		 ngmax*sizeof(double));
+      if (!(goff = (int *) calloc (ngmax, sizeof(int))))
+! 	fprintf (stderr, "Could not calloc %zu bytes for gy\n",
+  		 ngmax*sizeof(double));
+      if (!gx || !gy || !goff) {
+  	ret = 0;
+diff -r -c '--exclude=README.md' ./libwcs/Makefile ../xxx/wcstools-3.8.8/libwcs/Makefile
+*** ./libwcs/Makefile	2011-09-15 15:05:05.000000000 -0400
+--- ../xxx/wcstools-3.8.8/libwcs/Makefile	2013-10-29 17:15:18.896846752 -0400
+***************
+*** 12,18 ****
+  	wcslib.o lin.o cel.o proj.o sph.o wcstrig.o distort.o poly.o
+  
+  libwcs.a:	$(OBJS)
+! 	ar rv $@ $?
+  	ranlib $@
+  
+  actread.o:	fitsfile.h wcscat.h wcs.h fitshead.h wcslib.h
+--- 12,18 ----
+  	wcslib.o lin.o cel.o proj.o sph.o wcstrig.o distort.o poly.o
+  
+  libwcs.a:	$(OBJS)
+! 	ar r $@ $?
+  	ranlib $@
+  
+  actread.o:	fitsfile.h wcscat.h wcs.h fitshead.h wcslib.h
+diff -r -c '--exclude=README.md' ./libwcs/ucacread.c ../xxx/wcstools-3.8.8/libwcs/ucacread.c
+*** ./libwcs/ucacread.c	2013-07-25 14:20:20.000000000 -0400
+--- ../xxx/wcstools-3.8.8/libwcs/ucacread.c	2013-10-29 17:14:45.128848577 -0400
+***************
+*** 822,828 ****
+          else if (ucat == UCAC2) {
+            fprintf (stderr,"UCACRNUM: %11.6f: %9.5f %9.5f %5.2f",
+                     num, ra, dec, star->xmag[0]);
+!           fprintf (stderr," %5.2f %5.2f %5.2f %d %d",
+                     star->xmag[1],star->xmag[2],star->xmag[3]);
+            fprintf (stderr," %d %d\n",star->nimage,star->ncat);
+  		    }
+--- 822,829 ----
+          else if (ucat == UCAC2) {
+            fprintf (stderr,"UCACRNUM: %11.6f: %9.5f %9.5f %5.2f",
+                     num, ra, dec, star->xmag[0]);
+!           //fprintf (stderr," %5.2f %5.2f %5.2f %d %d",
+!           fprintf (stderr," %5.2f %5.2f %5.2f",
+                     star->xmag[1],star->xmag[2],star->xmag[3]);
+            fprintf (stderr," %d %d\n",star->nimage,star->ncat);
+  		    }
+Only in ./libwcs: .ucacread.c.swp
+diff -r -c '--exclude=README.md' ./remap.c ../xxx/wcstools-3.8.8/remap.c
+*** ./remap.c	2013-09-23 16:00:48.000000000 -0400
+--- ../xxx/wcstools-3.8.8/remap.c	2013-10-29 17:10:53.880861081 -0400
+***************
+*** 42,47 ****
+--- 42,48 ----
+  extern void setnpix();
+  extern void setwcsproj();
+  extern void setscale();
++ extern struct WorldCoor *GetFITSWCS();
+  
+  static void usage();
+  static int verbose = 0;		/* verbose flag */
+diff -r -c '--exclude=README.md' ./scat.c ../xxx/wcstools-3.8.8/scat.c
+*** ./scat.c	2013-09-23 16:00:48.000000000 -0400
+--- ../xxx/wcstools-3.8.8/scat.c	2013-10-29 17:57:44.600709098 -0400
+***************
+*** 1213,1257 ****
+  	gobj = NULL;
+  
+  	if (!(gnum = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for gnum\n",
+  		    ngmax*sizeof(double));
+  	if (!(gra = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for gra\n",
+  		     ngmax*sizeof(double));
+  	if (!(gdec = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for gdec\n",
+  		     ngmax*sizeof(double));
+  	if (!(gm = (double **) calloc (nmagmax, sizeof(double *))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for gm\n",
+  		     nmagmax*sizeof(double *));
+  	else {
+  	    for (imag = 0; imag < nmagmax; imag++) {
+  		if (!(gm[imag] = (double *) calloc (ngmax, sizeof(double))))
+! 		    fprintf (stderr, "Could not calloc %d bytes for gm\n",
+  			     ngmax*sizeof(double));
+  		}
+  	    }
+  	if (!(gc = (int *) calloc (ngmax, sizeof(int))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for gc\n",
+  		     ngmax*sizeof(int));
+  	if (!(gx = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for gx\n",
+  		     ngmax*sizeof(double));
+  	if (!(gy = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for gy\n",
+  		     ngmax*sizeof(double));
+  	if (!(gobj = (char **) calloc (ngmax, sizeof(char *))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for obj\n",
+  		     ngmax*sizeof(char *));
+  	else {
+  	    for (i = 0; i < ngmax; i++)
+  		gobj[i] = NULL;
+  	    }
+  	if (!(gpra = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for gpra\n",
+  		     ngmax*sizeof(double));
+  	if (!(gpdec = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %d bytes for gpdec\n",
+  		     ngmax*sizeof(double));
+  	if (gnum==NULL || gra==NULL || gdec==NULL || gm==NULL || gc==NULL ||
+  	   gx==NULL || gy==NULL || gobj==NULL || gpra == NULL || gpdec == NULL){
+--- 1213,1257 ----
+  	gobj = NULL;
+  
+  	if (!(gnum = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for gnum\n",
+  		    ngmax*sizeof(double));
+  	if (!(gra = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for gra\n",
+  		     ngmax*sizeof(double));
+  	if (!(gdec = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for gdec\n",
+  		     ngmax*sizeof(double));
+  	if (!(gm = (double **) calloc (nmagmax, sizeof(double *))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for gm\n",
+  		     nmagmax*sizeof(double *));
+  	else {
+  	    for (imag = 0; imag < nmagmax; imag++) {
+  		if (!(gm[imag] = (double *) calloc (ngmax, sizeof(double))))
+! 		    fprintf (stderr, "Could not calloc %zu bytes for gm\n",
+  			     ngmax*sizeof(double));
+  		}
+  	    }
+  	if (!(gc = (int *) calloc (ngmax, sizeof(int))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for gc\n",
+  		     ngmax*sizeof(int));
+  	if (!(gx = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for gx\n",
+  		     ngmax*sizeof(double));
+  	if (!(gy = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for gy\n",
+  		     ngmax*sizeof(double));
+  	if (!(gobj = (char **) calloc (ngmax, sizeof(char *))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for obj\n",
+  		     ngmax*sizeof(char *));
+  	else {
+  	    for (i = 0; i < ngmax; i++)
+  		gobj[i] = NULL;
+  	    }
+  	if (!(gpra = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for gpra\n",
+  		     ngmax*sizeof(double));
+  	if (!(gpdec = (double *) calloc (ngmax, sizeof(double))))
+! 	    fprintf (stderr, "Could not calloc %zu bytes for gpdec\n",
+  		     ngmax*sizeof(double));
+  	if (gnum==NULL || gra==NULL || gdec==NULL || gm==NULL || gc==NULL ||
+  	   gx==NULL || gy==NULL || gobj==NULL || gpra == NULL || gpdec == NULL){
+***************
+*** 1361,1372 ****
+  		}
+  	    nmagmax = nmag;
+  	    if (!(gm = (double **) calloc (nmagmax, sizeof(double *))))
+! 		fprintf (stderr, "Could not calloc %d bytes for gm\n",
+  			 nmagmax*sizeof(double *));
+  	    else {
+  		for (imag = 0; imag < nmagmax; imag++) {
+  		    if (!(gm[imag] = (double *) calloc (ngmax, sizeof(double))))
+! 			fprintf (stderr, "Could not calloc %d bytes for gm\n",
+  				 ngmax*sizeof(double));
+  		    }
+  		}
+--- 1361,1372 ----
+  		}
+  	    nmagmax = nmag;
+  	    if (!(gm = (double **) calloc (nmagmax, sizeof(double *))))
+! 		fprintf (stderr, "Could not calloc %zu bytes for gm\n",
+  			 nmagmax*sizeof(double *));
+  	    else {
+  		for (imag = 0; imag < nmagmax; imag++) {
+  		    if (!(gm[imag] = (double *) calloc (ngmax, sizeof(double))))
+! 			fprintf (stderr, "Could not calloc %zu bytes for gm\n",
+  				 ngmax*sizeof(double));
+  		    }
+  		}
+diff -r -c '--exclude=README.md' ./sumpix.c ../xxx/wcstools-3.8.8/sumpix.c
+*** ./sumpix.c	2013-09-23 16:00:48.000000000 -0400
+--- ../xxx/wcstools-3.8.8/sumpix.c	2013-10-29 17:04:54.792880499 -0400
+***************
+*** 335,341 ****
+      /* Compute counts in circular area */
+      if (compphot) {
+  	if (strchr (xstr, ':') != NULL || strchr (ystr, ':') != NULL) {
+! 	    wcs = GetWCSFITS (name, header, verbose);
+  	    ra = str2ra (xstr);
+  	    dec = str2dec (ystr);
+  	    wcs2pix (wcs, ra, dec, &xp, &yp, &offscl);
+--- 335,342 ----
+      /* Compute counts in circular area */
+      if (compphot) {
+  	if (strchr (xstr, ':') != NULL || strchr (ystr, ':') != NULL) {
+! 	    //wcs = GetWCSFITS (name, header, verbose);
+! 	    wcs = GetWCSFITS (name, verbose);
+  	    ra = str2ra (xstr);
+  	    dec = str2dec (ystr);
+  	    wcs2pix (wcs, ra, dec, &xp, &yp, &offscl);
